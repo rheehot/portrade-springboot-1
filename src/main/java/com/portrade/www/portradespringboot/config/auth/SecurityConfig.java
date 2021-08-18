@@ -16,15 +16,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
-                .headers().frameOptions().disable()
+                .headers().frameOptions().disable()     //h2-console화면을 사용하기 위한 옵션
                 .and()
                 .authorizeRequests()
-                .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/profile").permitAll()
-                .antMatchers("/api/v1/**").hasRole(Role.USER.name())
+                .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/profile").permitAll()  //권한설정 -> 전체 열람 권한
+                .antMatchers("/api/v1/**").hasRole(Role.USER.name())    //권한 설정 -> user권한을 가진사람만 가능
                 .anyRequest().authenticated()
                 .and()
                 .logout()
-                .logoutSuccessUrl("/")
+                .logoutSuccessUrl("/")  //logout 성공 시 / 주소로 이동
                 .and()
                 .oauth2Login()
                 .userInfoEndpoint()

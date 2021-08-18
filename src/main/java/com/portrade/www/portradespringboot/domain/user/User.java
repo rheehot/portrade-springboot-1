@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
+// 사용자 정보를 담당할 도메인
 public class User extends BaseTimeEntity {
 
     @Id

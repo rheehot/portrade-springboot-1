@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
+//사용자의 권한을 관리할 Enum 클래스
 public enum Role {
 
     GUEST("ROLE_GUEST", "손님"),
